@@ -1,0 +1,28 @@
+RobotServer 0.1
+Creado por: Marco Elizalde
+Fecha: 4 de mayo del 2012
+
+Este folder contiene los elementos necesarios para programar, compilar y ejecutar el programa server (driver). El archivo de configuracion se encuentra en Robot.cfg. En este archivo se dan de alta las interfaces de sensores, motores y posicion. En la carpeta de "PlayerDriver" se encuentra el codigo fuente del driver (plugin) y las librerias necesarias para compilarlo.
+
+Para compilar el driver (libRobotdriver.so) se utiliza cmake.
+
+Primero se verifica el PKG_CONFIG_PATH:
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
+
+Si dentro de la carpeta "PlayerDriver" existe un folder "build", este debe borrarse.
+
+Para  crear una nueva configuracion, se debe entra a la carpeta "PlayerDriver"
+
+$ cd RUTA/RobotServer/PlayerDriver
+$ mkdir build
+$ cd build
+
+Dentro de esta carpeta se ejecuta el siguiente comando para configurar la compilacion:
+
+$ cmake ../
+
+Despues se compila utilizando el comando make:
+
+$ make
+
+Esto crea el archivo libRobotDriver.so, el cual es el plugin del driver. En el archivo de configuracion se encuentra el Path para este plugin dentro de la carpeta de "build"

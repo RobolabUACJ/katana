@@ -174,8 +174,8 @@ void
 print_usage()
 {
   printf("\n"
-         " playercam - camera test utility for a player camera\n\n"
-         "USAGE:  playercam [options] \n\n"
+         " visionk - camera test utility for a katana camera\n\n"
+         "USAGE:  visionk [options] \n\n"
          "Where [options] can be:\n"
          "  -help          : print this message.\n"
          "  -h <hostname>  : host that is running player\n"
@@ -315,7 +315,7 @@ main(int argc, char *argv[])
   gtk_init(&argc, &argv);
 
   window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
-  gtk_window_set_title(GTK_WINDOW(window), "PlayerCam");
+  gtk_window_set_title(GTK_WINDOW(window), "Visionk");
 
   vbox = gtk_vbox_new(FALSE, 0);
   gtk_container_add (GTK_CONTAINER(window), vbox);
@@ -384,7 +384,7 @@ player_init(int argc, char *argv[])
   if (0 != playerc_camera_subscribe(g_camera, PLAYER_OPEN_MODE))
   {
     fprintf(stderr, "camera error: %s\n", playerc_error_str());
-    fprintf(stderr, "playercam will attempt to continue without a camera\n");
+    fprintf(stderr, "visionk will attempt to continue without a camera\n");
     playerc_camera_destroy(g_camera);
     g_camera = NULL;
   }
@@ -394,7 +394,7 @@ player_init(int argc, char *argv[])
   if (0 != playerc_blobfinder_subscribe(g_blobfinder, PLAYER_OPEN_MODE))
   {
     fprintf(stderr, "blobfinder error: %s\n", playerc_error_str());
-    fprintf(stderr, "playercam will attempt to continue without a blobfinder\n");
+    fprintf(stderr, "visionk will attempt to continue without a blobfinder\n");
     playerc_blobfinder_destroy(g_blobfinder);
     g_blobfinder = NULL;
   }
@@ -413,8 +413,7 @@ player_init(int argc, char *argv[])
       // Decompress the image
       csize = g_camera->image_count;
       playerc_camera_decompress(g_camera);
-      usize =  g_camera->image_count;
-
+      usize = g_camera->image_count;
 
       g_print("camera: [w %d h %d d %d] [%d/%d bytes]\n",
               g_camera->width, g_camera->height, g_camera->bpp, csize, usize);

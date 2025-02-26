@@ -1,0 +1,1 @@
+/usr/bin/c++  -fPIC    -shared -Wl,-soname,libdsp.so -o libdsp.so CMakeFiles/dsp.dir/dsp.o CMakeFiles/dsp.dir/packet.o -L/usr/local/lib -lplayercore -lpthread -lltdl -ldl -lplayerinterface -lplayercommon -Wl,-rpath,/usr/local/lib 

@@ -1,0 +1,1 @@
+posicion.o: posicion.c

@@ -1,0 +1,21 @@
+RobotClient 0.1
+Creado por: Marco Elizalde
+Fecha: 4 de mayo del 2012
+
+Este folder contiene los elementos necesarios para programar, compilar y ejecutar el programa cliente. El codigo fuente se encuentra en el archivo RobotClient.cpp. Utiliza diversas librerias localizadas en RobotClientLibs. Estas librerias permiten compilar el cliente con los elementos necesarios de comunicacion con el server (RobotServer).
+
+Verificar el PKG_CONFIG_PATH:
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
+
+Para compilar el programa, se utiliza el Makefile:
+
+$ make (compila el programa cliente con librerias de player)
+
+Para eliminar el programa:
+
+$ make clean:
+
+Tambien es posible compilar el programa cliente desde la terminal utilizando el siguiente comando.
+
+Compilar el Cliente:
+g++ -o RobotClient `pkg-config --cflags playerc++` RobotClient.cpp `pkg-config --libs playerc++`

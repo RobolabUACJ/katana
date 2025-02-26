@@ -1,0 +1,24 @@
+Codigo para Compilacion Manual del Driver de player
+Creado por: Marco Elizalde
+Fecha: 4 de mayo del 2012
+
+Nota: Se recomienda la compilacion utilizando cmake, para generar el archivo correcto .so
+
+Verificar el PKG_CONFIG_PATH:
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
+
+El proceso se lleba a cabo en dos partes. Primero se compila un objeto (archivo.o) del codigo fuente (archivo.cpp):
+
+g++ -Wall -g3 `pkg-config --cflags playerc++` -c RobotDriver.cpp
+
+Para arquitectura AMD64 se compila utilizando la bandera -fPIC:
+
+g++ -Wall -g3 -fPIC `pkg-config --cflags playerc++` -c RobotDriver.cpp
+
+Despues se compila la libreria (archivo.so) utilizando el objeto creado anteriormente:
+
+g++ -shared -nostartfiles -o libRobotDriver.so RobotDriver.o
+
+
+
+

@@ -144,11 +144,11 @@ void sig_quit(int signum)
 // Print the usage string
 void print_usage()
 {
-  printf("\nPlayerViewer %s, ", PLAYER_VERSION);
-  printf("a visualization tool for the Player robot device server.\n");
-  printf("Usage  : playerv [-h <hostname>] [-p <port>] [-rate <Hz>]\n");
+  printf("\nVisor2dkViewer %s, ", PLAYER_VERSION);
+  printf("a visualization tool for the Katana robot device server.\n");
+  printf("Usage  : visor2dk [-h <hostname>] [-p <port>] [-rate <Hz>]\n");
   printf("                 [--<device>:<index>] [--<device>:<index>] ... \n");
-  printf("Example: playerv -p 6665 --position:0 --sonar:0\n");
+  printf("Example: visor2dk -p 6665 --position:0 --sonar:0\n");
   printf("\n");
 }
 
@@ -172,7 +172,7 @@ int main(int argc, char **argv)
   struct timeval tv, tc = {0, 0};
   struct timespec st = {0, (1.0/GUI_UPDATE_RATE) * 1e9};
 
-  printf("PlayerViewer %s\n", PLAYER_VERSION);
+  printf("Visor2dkViewer %s\n", PLAYER_VERSION);
 
   // Initialise rtk lib (after we have read the program options we
   // want).

@@ -1,0 +1,1 @@
+/home/melizalde/cerebotII-samurai/trunk/cerebot server/build/CMakeFiles/scos.dir

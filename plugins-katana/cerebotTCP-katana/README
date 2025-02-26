@@ -1,0 +1,12 @@
+Cerebot Control Suite
+Creado por: Marco Elizalde
+Fecha: 11 de Julio del 2012
+
+Esta suite contiene el siguiente software:
+-FirmwareCerebot ver 2: Firmware para comunicacion con el cerebot a traves de una red IP utilizando TCP como protocolo de comunicacion.
+-SCOS(Samurai Cerebot Operating Sistem): Aplicacion server y driver plug-in para player.
+-Simple_Client: Programa ejemplo de como utilizar la Cerebot Control Suite.
+
+Este folder contiene los elementos necesarios para programar, compilar y ejecutar el Firmware que debe incluir el Cerebot. El archivo es un projecto de MPLABX de microchip. Se abre con versiones MPLABX desde 0.8 hasta 1.20. El archivo se compila utilizando las herramientas de MPLABX y se programa al Cerebot. Ademas de tener instalado el MPLABX, es necesario instalar el compilador C32 para microprocesadores de 32 bits.
+Tambien contiene el driver de player desarrollado para funcionar con este firmware bajo una arquitectura SAMURAI. Tanto la aplicacion server como la aplicacion cliente se ejecutan en una misma computadora (sistema local). La Cerebot Control Suite se encarga de enviar los comandos al Cerebot32MX4 para controlar los motores o leer informacion sensorial de la IMU.
+

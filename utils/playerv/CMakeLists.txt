@@ -1,4 +1,4 @@
-OPTION (BUILD_UTILS_PLAYERV "Build the playerv utility" ON)
+OPTION (BUILD_UTILS_PLAYERV "Build the visor2dk utility" ON)
 IF (BUILD_UTILS_PLAYERV)
     IF (WITH_GTK AND INCLUDE_RTK)
         SET (playervSrcs    playerv.c
@@ -30,17 +30,17 @@ IF (BUILD_UTILS_PLAYERV)
 
         INCLUDE_DIRECTORIES (${PROJECT_SOURCE_DIR}/client_libs ${GTK_PKG_INCLUDE_DIRS})
         LINK_DIRECTORIES (${GTK_PKG_LIBRARY_DIRS})
-        PLAYER_ADD_EXECUTABLE (playerv ${playervSrcs})
-        TARGET_LINK_LIBRARIES (playerv playerc playerinterface playercommon playerutil
+        PLAYER_ADD_EXECUTABLE (visor2dk ${playervSrcs})
+        TARGET_LINK_LIBRARIES (visor2dk playerc playerinterface playercommon playerutil
             rtk ${PLAYERC_EXTRA_LINK_LIBRARIES} ${GTK_PKG_LIBRARIES})
         IF (PLAYER_OS_SOLARIS)
-            TARGET_LINK_LIBRARIES (playerv rt)
+            TARGET_LINK_LIBRARIES (visor2dk rt)
         ENDIF (PLAYER_OS_SOLARIS)
         SET_SOURCE_FILES_PROPERTIES (${playervSrcs} PROPERTIES
             COMPILE_FLAGS "${GTK_CFLAGS}")
-        SET_TARGET_PROPERTIES (playerv PROPERTIES
+        SET_TARGET_PROPERTIES (visor2dk PROPERTIES
             LINK_FLAGS "${GTK_LINKFLAGS}")
     ELSE (WITH_GTK AND INCLUDE_RTK)
-        MESSAGE (STATUS "playerv will not be built - GTK not found or RTK disabled.")
+        MESSAGE (STATUS "Visor2dk will not be built - GTK not found or RTK disabled.")
     ENDIF (WITH_GTK AND INCLUDE_RTK)
 ENDIF (BUILD_UTILS_PLAYERV)

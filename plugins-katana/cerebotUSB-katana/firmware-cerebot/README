@@ -1,0 +1,6 @@
+RobotFirmware 0.1
+Creado por: Marco Elizalde
+Fecha: 4 de mayo del 2012
+
+Este folder contiene los elementos necesarios para programar, compilar y ejecutar el programa el Firmware que debe incluir el Cerebot. El archivo es un projecto de MPLABX de microchip. Se abre con versiones MPLABX desde 0.8 hasta 1.10. El archivo se compila utilizando las herramientas de MPLABX y se programa al Cerebot. Ademas de tener instalado el MPLABX, es necesario instalar el compilador C32 para microprocesadores de 32 bits.
+

@@ -9,8 +9,12 @@ ENDIF (WIN32)
 IF (COMMAND CMAKE_POLICY)
     CMAKE_POLICY (SET CMP0003 NEW)
     CMAKE_POLICY (SET CMP0004 NEW)
+    CMAKE_POLICY (SET CMP0007 NEW)
+    #CMAKE_POLICY (SET CMP0148 NEW)
 ENDIF (COMMAND CMAKE_POLICY)
 
+# Compile with C++11
+set (CMAKE_CXX_STANDARD 11)
 
 # Set the project name (helps Visual Studio, mainly)
 PROJECT (Player)
@@ -19,6 +23,13 @@ STRING (TOLOWER ${PROJECT_NAME} PROJECT_NAME_LOWER)
 SET (PLAYER_VERSION 3.1.1-dev CACHE STRING "Player distribution version")
 SET (PLAYER_API_VERSION 3.1 CACHE STRING "Player API version")
 MESSAGE (STATUS "${PROJECT_NAME} version ${PLAYER_VERSION}")
+
+# Find and use OpenCV directories
+find_package(OpenCV REQUIRED)
+include_directories(${OpenCV_INCLUDE_DIRS})
+set (OpenCV_DIR /usr/lib64/cmake/opencv4/)
+#add_executable(opencvTest main.cpp)
+#target_link_libraries(opencvTest ${OpenCV_LIBS})
 
 # Set where to find our internal CMake scripts
 SET (PLAYER_CMAKE_DIR ${PROJECT_SOURCE_DIR}/cmake CACHE PATH "Location of CMake scripts")
@@ -31,8 +42,8 @@ INCLUDE (${PLAYER_CMAKE_DIR}/internal/FindOS.cmake)
 IF (NOT PLAYER_OS_WIN AND NOT PLAYER_OS_SOLARIS)
     # Using -Wall on Windows causes MSVC to produce thousands of warnings in its
     # own standard headers, dramatically slowing down the build.
-    SET (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall")
-    SET (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
+    SET (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -lboost_system -Wno-incompatible-pointer-types -Wno-int-conversion -Wno-implicit-function-declaration")
+    SET (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -lboost_system -fpermissive")
 ENDIF (NOT PLAYER_OS_WIN AND NOT PLAYER_OS_SOLARIS)
 
 # Check the compiler version is OK
