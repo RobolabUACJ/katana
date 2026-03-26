@@ -1,12 +1,10 @@
-INCLUDE (FindPythonInterp)
-INCLUDE (FindPythonLibs)
+FIND_PACKAGE (Python COMPONENTS Interpreter Development)
 IF (PYTHONINTERP_FOUND)
     OPTION (BUILD_PYTHONC_BINDINGS "Build the Python bindings for the C client library" ON)
 
     IF (BUILD_PYTHONC_BINDINGS)
         FIND_PACKAGE (SWIG)
-        FIND_PACKAGE (PythonInterp)
-        FIND_PACKAGE (PythonLibs)
+        FIND_PACKAGE (Python COMPONENTS Interpreter Development)
         IF (SWIG_FOUND AND PYTHONLIBS_FOUND)
             MESSAGE (STATUS "Python bindings for C client library will be built")
 

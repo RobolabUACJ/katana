@@ -1,5 +1,4 @@
-INCLUDE (FindPythonInterp)
-INCLUDE (FindPythonLibs)
+FIND_PACKAGE (Python COMPONENTS Interpreter Development)
 
 IF(BUILD_PLAYERCC)
     IF (PYTHONINTERP_FOUND)
@@ -7,8 +6,7 @@ IF(BUILD_PLAYERCC)
 
         IF (BUILD_PYTHONCPP_BINDINGS)
             FIND_PACKAGE (SWIG)
-            FIND_PACKAGE (PythonInterp)
-            FIND_PACKAGE (PythonLibs)
+            FIND_PACKAGE (Python COMPONENTS Interpreter Development)
             IF (SWIG_FOUND AND PYTHONLIBS_FOUND)
                 MESSAGE (STATUS "Python bindings for C++ client library will be built")
 

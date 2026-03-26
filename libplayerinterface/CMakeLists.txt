@@ -1,8 +1,8 @@
 # The Python interpreter is necessary to compile this library
-INCLUDE (FindPythonInterp)
-IF (NOT PYTHONINTERP_FOUND)
-    MESSAGE (FATAL_ERROR "No Python interpreter found. Cannot continue.")
-ENDIF (NOT PYTHONINTERP_FOUND)
+FIND_PACKAGE (Python COMPONENTS Interpreter)
+IF (NOT Python_Interpreter_FOUND)
+    MESSAGE (FATAL_ERROR "No Python interpreter found.  Cannot continue.")
+ENDIF ()
 
 SET (interfaceFiles interfaces/001_player.def
                     interfaces/002_power.def

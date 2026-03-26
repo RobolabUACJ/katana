@@ -1,10 +1,10 @@
 # Processes the interface files in the specified directory into the provided output file name
 
 # The Python interpreter is necessary
-INCLUDE (FindPythonInterp)
-IF (NOT PYTHONINTERP_FOUND)
-    MESSAGE (FATAL_ERROR "No Python interpreter found. Cannot continue.")
-ENDIF (NOT PYTHONINTERP_FOUND)
+FIND_PACKAGE (Python COMPONENTS Interpreter)
+IF (NOT Python_Interpreter_FOUND)
+    MESSAGE (FATAL_ERROR "No Python interpreter found.  Cannot continue.")
+ENDIF ()
 
 MACRO (PROCESS_INTERFACES options directory outputFile)
     ADD_CUSTOM_COMMAND (OUTPUT ${outputFile}

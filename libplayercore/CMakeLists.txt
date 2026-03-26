@@ -1,8 +1,8 @@
 # The Python interpreter is necessary to compile this library
-INCLUDE (FindPythonInterp)
-IF (NOT PYTHONINTERP_FOUND)
-    MESSAGE (FATAL_ERROR "No Python interpreter found. Cannot continue.")
-ENDIF (NOT PYTHONINTERP_FOUND)
+FIND_PACKAGE (Python COMPONENTS Interpreter)
+IF (NOT Python_Interpreter_FOUND)
+    MESSAGE (FATAL_ERROR "No Python interpreter found.  Cannot continue.")
+ENDIF ()
 
 IF (NOT PTHREAD_INCLUDE_DIR STREQUAL "")
     PLAYERCORE_ADD_INCLUDE_DIR (${PTHREAD_INCLUDE_DIR})

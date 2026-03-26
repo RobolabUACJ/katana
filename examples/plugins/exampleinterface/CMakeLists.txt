@@ -1,9 +1,9 @@
 INCLUDE_DIRECTORIES (${PLAYERCORE_EXTRA_INCLUDE_DIRS})
 LINK_DIRECTORIES (${PLAYERCORE_EXTRA_LINK_DIRS})
-INCLUDE (FindPythonInterp)
-IF (NOT PYTHONINTERP_FOUND)
-    MESSAGE (FATAL_ERROR "No Python interpreter found. Cannot continue.")
-ENDIF (NOT PYTHONINTERP_FOUND)
+FIND_PACKAGE (Python COMPONENTS Interpreter)
+IF (NOT Python_Interpreter_FOUND)
+    MESSAGE (FATAL_ERROR "No Python interpreter found.  Cannot continue.")
+ENDIF ()
 
 SET (example_interface_h ${CMAKE_CURRENT_BINARY_DIR}/example_interface.h)
 ADD_CUSTOM_COMMAND (OUTPUT ${example_interface_h}
